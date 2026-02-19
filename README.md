@@ -1,5 +1,7 @@
 # Weixin MCP RS
 
+[English](./assets/readme_en.md)
+
 一个基于 Rust 实现的 [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) 服务器，用于读取微信公众号文章内容。
 
 通过 headless Chrome 浏览器渲染微信文章页面，提取标题、作者、发布时间和正文内容，以结构化 JSON 格式返回给 AI 客户端（如 Claude Desktop）。

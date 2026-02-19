@@ -83,13 +83,9 @@ cargo build --release
 
 ## 🚀 使用
 
-### 配置 Claude Desktop
+### 配置 Claude Desktop/Antigravity/Cursor等
 
-编辑 Claude Desktop 配置文件：
-
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Linux**: `~/.config/Claude/claude_desktop_config.json`
+编辑相关的配置文件：
 
 ```json
 {
@@ -98,7 +94,7 @@ cargo build --release
       //in windows
       "command": "/path/to/weixin-mcp-rs.exe"
       //in linux
-      //"command": "/path/to//weixin-mcp-rs"
+      //"command": "/path/to/weixin-mcp-rs"
     }
   }
 }

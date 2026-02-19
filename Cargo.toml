@@ -1,0 +1,40 @@
+[package]
+name = "weixin-mcp-rs"
+version = "0.1.0"
+edition = "2021"
+description = "MCP server for reading WeChat articles - Rust implementation"
+
+[dependencies]
+# MCP 协议 SDK（Anthropic 官方 Rust 实现）
+rmcp = { version = "0.16", features = [
+    "server",                    # 服务端功能
+    "macros",                    # #[tool] 等宏
+    "transport-io",              # stdio 传输
+] }
+
+# 浏览器自动化（通过 Chrome DevTools Protocol）
+chromiumoxide = { version = "0.8", features = ["tokio-runtime"], default-features = false }
+futures = "0.3"                  # chromiumoxide handler 需要 StreamExt
+
+# HTML 解析（CSS 选择器）
+scraper = "0.22"
+
+# 正则表达式（清理文本）
+regex = "1"
+
+# 异步运行时
+tokio = { version = "1", features = ["full"] }
+
+# 序列化
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# JSON Schema 生成（rmcp tool 参数需要）
+schemars = "0.8"
+
+# 日志
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# 错误处理
+thiserror = "2"

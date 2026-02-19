@@ -4,6 +4,23 @@
 
 通过 headless Chrome 浏览器渲染微信文章页面，提取标题、作者、发布时间和正文内容，以结构化 JSON 格式返回给 AI 客户端（如 Claude Desktop）。
 
+## 前言
+
+目前多家业界最佳的大模型厂商如Gemini,Claude,Minimax虽然都有联网搜索功能，但是由于微信公众号的反爬机制，并不能提取到文章内容，本项目旨在赋予LLM实际读取微信公众号文章的能力。
+
+受项目[weixin-read-mcp](https://github.com/Bwkyd/wexin-read-mcp)的启发，本项目使用Rust实现，优势在于：
+
+1. 🚀 启动速度 — 编译为原生二进制，无需 Python 解释器和虚拟环境，MCP 服务冷启动从数秒降至毫秒级
+2. 📦 分发简便 — 单个可执行文件，无需用户安装 Python / pip / venv
+3. 💾 内存占用 — Rust 无 GC 开销，整体内存占用更低
+4. 🔒 类型安全 — 编译期保证类型正确，杜绝运行时类型错误
+5. ⚡ 解析性能 — HTML 解析和文本处理在 Rust 中显著更快
+
+## 示例
+
+二进制文件即插即用：
+![示例图片](./assets/1.png)
+
 ## ✨ 特性
 
 - **单一二进制** — 无需 Python 环境，编译后即可分发
@@ -78,7 +95,10 @@ cargo build --release
 {
   "mcpServers": {
     "weixin-reader": {
-      "command": "/path/to/weixin-mcp-rs/target/release/weixin-mcp-rs"
+      //in windows
+      "command": "/path/to/weixin-mcp-rs.exe"
+      //in linux
+      //"command": "/path/to//weixin-mcp-rs"
     }
   }
 }
@@ -123,7 +143,3 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 | MCP 启动后无响应 | stdout 被日志污染 | 日志已配置输出到 stderr，检查是否有其他 print 语句 |
 | `find_element` 超时 | 页面加载慢 / 非微信文章页 | 确认 URL 是有效的微信文章链接 |
 | 文章内容为空 | 微信反爬虫 | 降低请求频率 |
-
-## 📄 License
-
-MIT

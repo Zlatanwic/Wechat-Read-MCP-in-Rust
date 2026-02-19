@@ -1,4 +1,4 @@
-# Weixin MCP RS
+# Wechat Article Read MCP in Rust
 
 [English](./assets/readme_en.md)
 

@@ -1,4 +1,4 @@
-# Weixin MCP RS
+# Wechat Article Read MCP in Rust
 
 A Rust-based [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server for reading WeChat Official Account articles.
 

@@ -1,6 +1,7 @@
 # Wechat Article Read MCP in Rust
 
-[English](./assets/readme_en.md)
+[![English](https://img.shields.io/badge/English-Click-yellow)](./assets/readme_en.md)
+
 
 一个基于 Rust 实现的 [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) 服务器，用于读取微信公众号文章内容。
 
